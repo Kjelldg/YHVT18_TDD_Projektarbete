@@ -60,6 +60,7 @@ public class RunnableGame {
 			
 			
 			// Move the player by having the java swing window selected and use the arrow keys (not numpad arrow keys btw).
+			//TODO: Add exceptions & tests
 			switch(arrow)
 			{
 				case "UP": 		System.out.println("Up arrow was pressed.");
