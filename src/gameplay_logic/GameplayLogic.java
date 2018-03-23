@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class GameplayLogic {
 
-	public static ArrayList<Integer> one = new ArrayList<Integer>();
-	public static ArrayList<Integer> two = new ArrayList<Integer>();
-	public static ArrayList<Integer> three = new ArrayList<Integer>();
+	public ArrayList<Integer> treasureOne = new ArrayList<Integer>();
+	public ArrayList<Integer> treasureTwo = new ArrayList<Integer>();
+	public ArrayList<Integer> treasureThree = new ArrayList<Integer>();
 	
 	public boolean openDoor(int treasures) {
 		
@@ -74,14 +74,14 @@ public class GameplayLogic {
 	public void checkTreasure(int treasure) {
 		
 		if(treasure == 1) {
-			one.add(treasure);
+			treasureOne.add(treasure);
 		
 		} else if(treasure == 2) {
-			two.add(treasure);
+			treasureTwo.add(treasure);
 			//System.out.println(two.toString()); //Test to see if value was added to list.
 			//return 2;
 		} else if(treasure == 3) {
-			three.add(treasure);
+			treasureThree.add(treasure);
 			
 		}
 

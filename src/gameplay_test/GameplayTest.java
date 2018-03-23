@@ -10,10 +10,10 @@ class GameplayTest {
 
 	public static GameplayLogic game;
 	public static LocalTime now;
-
-	public static ArrayList<Integer> one = new ArrayList<Integer>();
-	public static ArrayList<Integer> two = new ArrayList<Integer>();
-	public static ArrayList<Integer> three = new ArrayList<Integer>();
+	
+	public static ArrayList<Integer> treasureOne = new ArrayList<Integer>();
+	public static ArrayList<Integer> treasureTwo = new ArrayList<Integer>();
+	public static ArrayList<Integer> treasureThree = new ArrayList<Integer>();
 	
 	@BeforeAll
 	static void Init() {
@@ -62,11 +62,11 @@ class GameplayTest {
 		//Three 2g-treasures
 		//Two 3g-treasures
 		
-		one.add(1);
-		two.add(2); two.add(2); two.add(2);
-		three.add(3); three.add(3);
+		treasureOne.add(1);
+		treasureTwo.add(2); treasureTwo.add(2); treasureTwo.add(2);
+		treasureThree.add(3); treasureThree.add(3);
 		
-		int gold = game.checkGold(one, two, three);
+		int gold = game.checkGold(treasureOne, treasureTwo, treasureThree);
 		
 		assertEquals(13, gold);
 	}
@@ -78,7 +78,7 @@ class GameplayTest {
 		//Add value to correct array list.
 		
 		game.checkTreasure(2);
-		int expected = game.two.size();
+		int expected = game.treasureTwo.size();
 		
 		assertEquals(1, expected);
 	}
