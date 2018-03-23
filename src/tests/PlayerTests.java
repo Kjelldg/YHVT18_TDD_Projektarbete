@@ -4,23 +4,27 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import gameplay.RunnableGame;
 import player.Player;
+import player.Player.movementType;
 
 class PlayerTests {
 
 	@Test
 	void playerShouldSpawnAtRowOneOfGameBoard() {
-		fail("Not implemented");
+		Player player = new Player(1,8,new RunnableGame());
+		boolean ok = player.validateMovement(1, 8, movementType.SPAWN);
+		
+		assertTrue(ok); //Should return true if player is spawned @ row 1 in column 1-9
 
 	}
 	
 	@Test
 	void playerShouldNotBeAbleToMoveOnWallIndexes() {
-		//fail("Not yet implemented");
-		Player player = new Player(0, 2);
-		boolean ok = player.validateMovement(0, 2);
+		Player player = new Player(1, 5, new RunnableGame());
+		boolean ok = player.validateMovement(1, 1, movementType.MOVEMENT);
 		
-		assertFalse(ok);
+		assertFalse(ok); //pass if value is one (1)
 	}
 	
 	@Test
