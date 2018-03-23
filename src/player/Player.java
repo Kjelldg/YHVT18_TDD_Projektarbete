@@ -9,7 +9,7 @@ public class Player {
 	public final int playerValue = 2;
 	public enum movementType {SPAWN, MOVEMENT;}
 	ArrayList<Integer> inventory; //Should change to treasure class instead of Integer? 
-	private int xPosCurrent, yPosCurrent;
+	private int xPosCurrent, yPosCurrent, xPosPrevious, yPosPrevious;
 	private RunnableGame game;
 	
 	public Player() {
@@ -53,12 +53,33 @@ public class Player {
 	 
 		return okMove;
 	}
-	//Should this be in gameClass instead?
+	
 	public void doMove(int posX, int posY) {
-		//if(validateMovement(posX, posY)) {
-			//TODO: implement call to gameboard to move player
+			//Cache players last position to change value to zero on gameboard
+			xPosPrevious = posX;
+			yPosPrevious = posY;
+			boolean moveOk = false;
+			switch(game.arrow) {
+				case "UP":
+					if(moveOk = validateMovement(posX,--posY,movementType.MOVEMENT))
+						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
+				break;
+				case "DOWN":
+					if(moveOk = validateMovement(posX,++posY,movementType.MOVEMENT))
+						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
+				break;
+				case "RIGHT":
+					if(moveOk = validateMovement(++posX,posY,movementType.MOVEMENT))
+						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
+				break;
+				case "LEFT":
+					if(moveOk = validateMovement(--posX,posY,movementType.MOVEMENT))
+						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
+				break;
+			}
+			
 			//CollisionAfterMovement();
-		//}
+		}
 	}
 	
 	public void CollisionAfterMovement() {
