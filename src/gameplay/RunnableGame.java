@@ -1,8 +1,12 @@
 package gameplay;
 
 import java.util.Arrays;
+import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import player.Player;
 
 public class RunnableGame {
 	
@@ -10,6 +14,19 @@ public class RunnableGame {
 	public static int playerPosition_Y_Position = 0;
 	public static int inputTest = 0;
 	public static String arrow = "";
+	public static int [][] gameBoardArray = new int [][] {
+					{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+					};
+	public static Player player;
 	
 	
 	public static void main(String[] args) {
@@ -20,9 +37,9 @@ public class RunnableGame {
 		JFrame jframe = new JFrame();
 		jframe.add(textField);
 		jframe.setSize(200, 200);
-		jframe.setVisible(true);		  
+		jframe.setVisible(true);
 		
-		int [][] gameBoardArray = {
+		/*int [][] gameBoardArray = {
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -33,7 +50,7 @@ public class RunnableGame {
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-				};				
+				};	*/			
 		
 		while(true) 
 		{			
@@ -45,7 +62,7 @@ public class RunnableGame {
 				
 				for (int j = 0; j < gameBoardArray[i].length; j++) 
 				{
-					if (gameBoardArray[i][j] == 1) 
+					if (gameBoardArray[i][j] == 2) 
 					{						
 						playerPosition_X_Position = j;
 						playerPosition_Y_Position = i;
@@ -60,24 +77,24 @@ public class RunnableGame {
 			
 			
 			// Move the player by having the java swing window selected and use the arrow keys (not numpad arrow keys btw).
-			//TODO: Add exceptions & tests
+			//TODO: Add exceptions & testsddd
 			switch(arrow)
 			{
 				case "UP": 		System.out.println("Up arrow was pressed.");
 								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
-								gameBoardArray[playerPosition_Y_Position-1][playerPosition_X_Position] = 1;							
+								gameBoardArray[playerPosition_Y_Position-1][playerPosition_X_Position] = 2;							
 					break;
 				case "DOWN": 	System.out.println("Down arrow was pressed.");
 								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
-								gameBoardArray[playerPosition_Y_Position+1][playerPosition_X_Position] = 1;
+								gameBoardArray[playerPosition_Y_Position+1][playerPosition_X_Position] = 2;
 					break;
 				case "LEFT": 	System.out.println("Left arrow was pressed.");
 								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
-								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position-1] = 1;
+								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position-1] = 2;
 					break;
 				case "RIGHT":	System.out.println("Right arrow was pressed.");
 								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
-								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position+1] = 1;
+								gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position+1] = 2;
 					break;
 				default: System.out.println("Nothing was pressed.");
 					break;
@@ -94,5 +111,10 @@ public class RunnableGame {
 		}
 
 	}
+	
+	public int getGameBoardPos(int posX, int posY){
+		return gameBoardArray[posX][posY];
+	}
+	
 
 }
