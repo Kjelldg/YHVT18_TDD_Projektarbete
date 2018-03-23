@@ -35,4 +35,35 @@ public class GameplayLogic {
 		return false;
 	}
 
+	public int checkGold(int[] treasureOne, int[] treasureTwo, int[] treasureThree) {
+		
+		//Count each array that hold treasures.
+		//Calculate the value of picked up treasures.
+		//Return total amount of gold.
+		
+		int gold = 0;
+		int countOne = 0, countTwo = 0, countThree = 0;
+		
+		for(int i = 0; i <= treasureOne.length; i++) {
+			countOne = i;
+				
+			
+			for(int j = 0; j <= treasureTwo.length; j++) {	
+				countTwo = j;
+				}
+			
+			for(int k = 0; k <= treasureThree.length; k++) {
+				countThree = k;
+				}
+		}
+		
+		countOne = countOne*1;
+		countTwo = countTwo*2;
+		countThree = countThree*3;
+		
+		gold = countOne+countTwo+countThree;
+		
+		return gold;
+	}
+
 }
