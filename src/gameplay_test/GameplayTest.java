@@ -2,17 +2,18 @@ package gameplay_test;
 
 import static org.junit.Assert.assertEquals;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import org.junit.jupiter.api.*;
-
 import gameplay_logic.GameplayLogic;
 
 class GameplayTest {
 
 	public static GameplayLogic game;
 	public static LocalTime now;
-	public static int[] treasureOne;
-	public static int[] treasureTwo;
-	public static int[] treasureThree;
+
+	public static ArrayList<Integer> one = new ArrayList<Integer>();
+	public static ArrayList<Integer> two = new ArrayList<Integer>();
+	public static ArrayList<Integer> three = new ArrayList<Integer>();
 	
 	@BeforeAll
 	static void Init() {
@@ -54,20 +55,32 @@ class GameplayTest {
 	@Test
 	void testCheckGold_checkGoldBasedOnTreasures() {
 		
-		//Create arrays for each type of treasure.
+		//Create array list for each type of treasure.
 		//Worth is 1, 2 and 3 gold.
 		//In this test case we have picked up:
 		//One 1g-treasure
 		//Three 2g-treasures
 		//Two 3g-treasures
 		
-		treasureOne = new int[]{1};
-		treasureTwo = new int[]{2, 2, 2};
-		treasureThree = new int[]{3, 3};
+		one.add(1);
+		two.add(2); two.add(2); two.add(2);
+		three.add(3); three.add(3);
 		
-		int gold = game.checkGold(treasureOne, treasureTwo, treasureThree);
+		int gold = game.checkGold(one, two, three);
 		
 		assertEquals(13, gold);
+	}
+	
+	@Test
+	void testCheckTreasure_validateTreasureAddToArray() {
+		
+		//Validate treasure based on character.
+		//Add value to correct array list.
+		
+		game.checkTreasure(2);
+		int expected = game.two.size();
+		
+		assertEquals(1, expected);
 	}
 	
 

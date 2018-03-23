@@ -1,9 +1,14 @@
 package gameplay_logic;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class GameplayLogic {
 
+	public static ArrayList<Integer> one = new ArrayList<Integer>();
+	public static ArrayList<Integer> two = new ArrayList<Integer>();
+	public static ArrayList<Integer> three = new ArrayList<Integer>();
+	
 	public boolean openDoor(int treasures) {
 		
 		//If treasures is 10 or higher, you can enter.
@@ -35,7 +40,7 @@ public class GameplayLogic {
 		return false;
 	}
 
-	public int checkGold(int[] treasureOne, int[] treasureTwo, int[] treasureThree) {
+	public int checkGold(ArrayList<Integer> one, ArrayList<Integer> two, ArrayList<Integer> three) {
 		
 		//Count each array that hold treasures.
 		//Calculate the value of picked up treasures.
@@ -44,15 +49,15 @@ public class GameplayLogic {
 		int gold = 0;
 		int countOne = 0, countTwo = 0, countThree = 0;
 		
-		for(int i = 0; i <= treasureOne.length; i++) {
+		for(int i = 0; i <= one.size(); i++) {
 			countOne = i;
 				
 			
-			for(int j = 0; j <= treasureTwo.length; j++) {	
+			for(int j = 0; j <= two.size(); j++) {	
 				countTwo = j;
 				}
 			
-			for(int k = 0; k <= treasureThree.length; k++) {
+			for(int k = 0; k <= three.size(); k++) {
 				countThree = k;
 				}
 		}
@@ -64,6 +69,22 @@ public class GameplayLogic {
 		gold = countOne+countTwo+countThree;
 		
 		return gold;
+	}
+
+	public void checkTreasure(int treasure) {
+		
+		if(treasure == 1) {
+			one.add(treasure);
+		
+		} else if(treasure == 2) {
+			two.add(treasure);
+			//System.out.println(two.toString()); //Test to see if value was added to list.
+			//return 2;
+		} else if(treasure == 3) {
+			three.add(treasure);
+			
+		}
+
 	}
 
 }
