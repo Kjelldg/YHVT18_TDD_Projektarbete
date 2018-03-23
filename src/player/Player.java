@@ -1,9 +1,12 @@
 package player;
 
+import java.util.ArrayList;
+
 import gameplay.RunnableGame;
 
 public class Player {
 	
+	ArrayList<Integer> inventory; //Should change to treasure class instead of Integer? 
 	private int xPosCurret, yPosCurrent;
 	private int xPosPrevious, yPosPrevious;
 	private RunnableGame game;
@@ -24,6 +27,7 @@ public class Player {
 	
 	
 	public Player(int startPosX, int startPosY, RunnableGame game) {
+		inventory = new ArrayList<>(); //makes sure that the inventory is empty when player is created. 
 		xPosCurret = startPosX;
 		yPosCurrent = startPosY;
 		this.game = game; //needed to get access to gameBoard coordinates
@@ -34,13 +38,14 @@ public class Player {
 		yPosCurrent = startPosY;
 	}
 	
+	//Should this be in gameClass instead?
 	public boolean validateMovement(int posX, int posY) {
 		int gameX = gameBoardArray[posX][posY]; //value of current tile
 		
 	boolean okMove = (gameX != 1) ?  true : false; // if value of tile is not 1 (wall) then it's ok to move to that tile
 		return okMove;
 	}
-	
+	//Should this be in gameClass instead?
 	public void doMove(int posX, int posY) {
 		if(validateMovement(posX, posY)) {
 			//TODO: implement call to gameboard to move player
