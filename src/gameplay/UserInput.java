@@ -25,22 +25,32 @@ public class UserInput extends KeyAdapter {
 			else if (event.getKeyCode() == KeyEvent.VK_UP)
 			{
 				RunnableGame.inputTest = 1;
-				RunnableGame.arrow = "UP";
+				RunnableGame.userInput = "UP";
 			}
 			else if (event.getKeyCode() == KeyEvent.VK_DOWN)
 			{
 				RunnableGame.inputTest = 2;
-				RunnableGame.arrow = "DOWN";
+				RunnableGame.userInput = "DOWN";
 			}			
 			else if (event.getKeyCode() == KeyEvent.VK_LEFT)
 			{
 				RunnableGame.inputTest = 3;
-				RunnableGame.arrow = "LEFT";
+				RunnableGame.userInput = "LEFT";
 			}
 			else if (event.getKeyCode() == KeyEvent.VK_RIGHT)
 			{
 				RunnableGame.inputTest = 4;
-				RunnableGame.arrow = "RIGHT";
+				RunnableGame.userInput = "RIGHT";
+			}
+			else if (keyPressedDown == 'y')
+			{
+				RunnableGame.inputTest = 4;
+				RunnableGame.userInput = "YES";
+			}
+			else if (keyPressedDown == 'n')
+			{
+				RunnableGame.inputTest = 4;
+				RunnableGame.userInput = "NO";
 			}
 		}
 
