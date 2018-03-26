@@ -15,8 +15,8 @@ public class RunnableGame {
 	public static int inputTest = 0;
 	public static String arrow = "";
 	public static int [][] gameBoardArray = new int [][] {
-					{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, //Array 0
+					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1}, //Array 1 {1,0,0,0,0,0,0,0,0,0,1}
 					{1, 3, 0, 0, 0, 0, 0, 0, 0, 1},
 					{1, 4, 0, 0, 0, 0, 0, 0, 0, 1},
 					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},

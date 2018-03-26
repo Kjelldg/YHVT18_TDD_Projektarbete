@@ -60,21 +60,21 @@ public class Player {
 			boolean moveOk = false;
 			//direction was game.arrow
 			switch(direction) {
-				case "UP":
+				case "UP": //is left
 					if(moveOk = validateMovement(xPosPrevious,(--yPosPrevious),movementType.MOVEMENT))
 						System.out.println("Moving up to:" + xPosPrevious + yPosPrevious);
 						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
 				break;
-				case "DOWN":
+				case "DOWN": // is right
 					if(moveOk = validateMovement(xPosPrevious,(++yPosPrevious),movementType.MOVEMENT))
 						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
 				break;
-				case "RIGHT":
+				case "RIGHT": //is up
 					if(moveOk = validateMovement((++xPosPrevious),yPosPrevious,movementType.MOVEMENT))
 						System.out.println("Moving right to:" + xPosPrevious + yPosPrevious);
 						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
 				break;
-				case "LEFT":
+				case "LEFT": // is down
 					if(moveOk = validateMovement((--xPosPrevious),yPosPrevious,movementType.MOVEMENT))
 						//UpdateGameboard - new pos and old pos (two new methods?) should have the value of 0
 				break;
@@ -87,7 +87,6 @@ public class Player {
 	
 	public boolean CollisionAfterMovement(int posX, int posY) {
 		int tileValue = game.getGameBoardPos(posX, posY);
-		System.out.println(tileValue);
 		boolean collision;
 		switch (tileValue) {
 			case 3:

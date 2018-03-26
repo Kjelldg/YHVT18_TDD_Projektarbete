@@ -26,7 +26,7 @@ class PlayerTests {
 		
 		assertFalse(ok); //pass if value is one (1)
 	}
-	
+	//TODO: Arrays are not defined as we thought. Y is horizontal, not vertical
 	@Test
 	void playerMovementUpShouldNotWork() {
 		Player player = new Player(1,1, new RunnableGame());
@@ -65,14 +65,18 @@ class PlayerTests {
 	@Test
 	void gameShouldDetectCollisionBetweenPlayerTreasure() {
 		Player player = new Player(1, 1, new RunnableGame());
+		
 		boolean isColliding = player.CollisionAfterMovement(2,1);
+		
 		assertEquals(true, isColliding);
 
 	}
 	@Test
 	void gameShouldDetectCollisionBetweenPlayerLaser() {
 		Player player = new Player(1, 1, new RunnableGame());
+		
 		boolean isColliding = player.CollisionAfterMovement(3,1);
+		
 		assertEquals(true, isColliding);
 
 	}
