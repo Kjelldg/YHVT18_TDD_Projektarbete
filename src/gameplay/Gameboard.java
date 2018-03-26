@@ -3,7 +3,7 @@ package gameplay;
 // Class for the Gameboard and it's getters and setters. 
 public class Gameboard {
 
-	int[][] gameBoardArray = { { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+	int[][] gameBoardArray = { { 0, 3, 4, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
@@ -14,6 +14,10 @@ public class Gameboard {
 
 	public void setGameBoardArray(int[][] gameBoardArray) {
 		this.gameBoardArray = gameBoardArray;
+	}
+	
+	public int getGameBoardPosistion(int posY, int posX) {
+		return gameBoardArray[posY][posX];
 	}
 
 }

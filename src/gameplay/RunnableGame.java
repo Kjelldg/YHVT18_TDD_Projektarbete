@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import GUI.TileType.InvalidIdException;
 import GUI.Window;
 import player.Player;
+import player.Player.movementType;
 
 public class RunnableGame {
 
@@ -16,14 +17,15 @@ public class RunnableGame {
 	public static int inputTest = 0;
 	public static boolean startGame = false;
 	public static String userInput = "";
+	public static Gameboard gameBoard;
 
 	public static void main(String[] args) {
 
 		JTextField textField = new JTextField();
 		textField.addKeyListener(new UserInput());
 		UserInput userInputClass = new UserInput();
-		Gameboard gameBoard = new Gameboard();
-		Player player = new Player();
+		gameBoard = new Gameboard();
+		Player player = new Player(1,2);
 
 		Window window = new Window(); // Nytt objekt för att skapa GUI-gameboard.
 
@@ -72,23 +74,32 @@ public class RunnableGame {
 				switch (userInput) {
 				case "UP":
 					System.out.println("Up arrow was pressed.");
-					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
-					gameBoard.gameBoardArray[playerPosition_Y_Position - 1][playerPosition_X_Position] = 1;
+					if(player.validateMovement(playerPosition_Y_Position -1, playerPosition_X_Position, movementType.MOVEMENT)) {
+						gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
+						gameBoard.gameBoardArray[playerPosition_Y_Position - 1][playerPosition_X_Position] = 1;
+						player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
+					}
 					break;
 				case "DOWN":
 					System.out.println("Down arrow was pressed.");
+					if(player.validateMovement(playerPosition_Y_Position +1, playerPosition_X_Position, movementType.MOVEMENT)) {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position + 1][playerPosition_X_Position] = 1;
+					}
 					break;
 				case "LEFT":
 					System.out.println("Left arrow was pressed.");
+					if(player.validateMovement(playerPosition_Y_Position, playerPosition_X_Position -1, movementType.MOVEMENT)) {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position - 1] = 1;
+					}
 					break;
 				case "RIGHT":
 					System.out.println("Right arrow was pressed.");
+					if(player.validateMovement(playerPosition_Y_Position, playerPosition_X_Position + 1, movementType.MOVEMENT)) {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position + 1] = 1;
+					}
 					break;
 				default:
 					System.out.println("Nothing was pressed.");
