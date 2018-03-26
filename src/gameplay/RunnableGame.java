@@ -5,6 +5,10 @@ import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import GUI.TileType.InvalidIdException;
+import GUI.Window;
+import player.Player;
+
 public class RunnableGame {
 
 	public static int playerPosition_X_Position = 0;
@@ -17,31 +21,33 @@ public class RunnableGame {
 
 		JTextField textField = new JTextField();
 		textField.addKeyListener(new UserInput());
+		UserInput userInputClass = new UserInput();
 		Gameboard gameBoard = new Gameboard();
+		Player player = new Player();
+
+		Window window = new Window(); // Nytt objekt för att skapa GUI-gameboard.
 
 		JFrame jframe = new JFrame();
 		jframe.add(textField);
-		jframe.setSize(2, 2);
+		jframe.setSize(100, 100);
 		jframe.setVisible(true);
+		jframe.setTitle("Window for user input.");
 
 		System.out.println("Would you like to start the game? Press y for yes, n for no.");
 
 		while (true) {
 
-			switch (userInput) {
-			case "YES":
-				startGame = true;
-				System.out.println("Good luck!");
-				break;
-			case "NO":
-				startGame = false;
-				System.out.println("That's a shame.");
-				break;
-			default:
-				break;
-			}
+			startGame = userInputClass.startGame(userInput);
 
 			while (startGame == true) {
+
+				// Skapar Mikaels GUI fönster.
+				try {
+					window.update(gameBoard.gameBoardArray);
+				} catch (InvalidIdException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 				System.out.println("\n\n\n\n\n"); // Prints empty lines beneath the game board.
 
@@ -92,7 +98,7 @@ public class RunnableGame {
 				userInput = "";
 
 				try {
-					Thread.sleep(200);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

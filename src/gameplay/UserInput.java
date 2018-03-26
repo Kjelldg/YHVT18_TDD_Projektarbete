@@ -5,6 +5,9 @@ import java.awt.event.KeyEvent;
 
 public class UserInput extends KeyAdapter {
 
+	Gameboard gameBoard = new Gameboard();
+	RunnableGame game = new RunnableGame();
+
 	/*
 	 * This code sets the public static String userInput to various values based on
 	 * the user's keyboard actions.
@@ -26,6 +29,19 @@ public class UserInput extends KeyAdapter {
 			RunnableGame.userInput = "YES";
 		} else if (keyPressedDown == 'n') {
 			RunnableGame.userInput = "NO";
+		}
+	}
+
+	public boolean startGame(String userInput) {
+		switch (userInput) {
+		case "YES":
+			System.out.println("Good luck!");
+			return true;
+		case "NO":
+			System.out.println("That's a shame.");
+			return false;
+		default:
+			return false;
 		}
 	}
 
