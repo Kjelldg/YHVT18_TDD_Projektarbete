@@ -28,9 +28,53 @@ class PlayerTests {
 	}
 	
 	@Test
-	void gameShouldDetectCollisionBetweenPlayerANdOtherObjects() {
-		fail("To be implemented");
-		//Should check for other numbers than 1 || 0 in arrayIndex, then throw collison. 
+	void playerMovementUpShouldNotWork() {
+		Player player = new Player(1,1, new RunnableGame());
+		boolean moveOkUp = player.doMove(1, 1, "UP"); //would move to wall tile
+		
+		assertEquals(false, moveOkUp);
+	}
+	@Test
+	void playerMovementDownShouldNotWork() {
+		Player player = new Player(1,1, new RunnableGame());
+		boolean moveOkDown = player.doMove(2, 8, "DOWN"); //would move to wall tile
+		
+		assertEquals(false, moveOkDown);
+
+	}
+	
+	@Test
+	void playerMovementLeftShouldNotWork() {
+		Player player = new Player(1,1, new RunnableGame());
+
+		boolean moveOkLeft = player.doMove(1, 1, "LEFT"); //would move to wall tile
+		
+		assertEquals(false, moveOkLeft);
+		
+	}
+	@Test
+	void playerMovementRightShouldNotWork() {
+		Player player = new Player(1,1, new RunnableGame());
+
+		boolean moveOkRight = player.doMove(8, 1, "RIGHT"); //would move to wall tile
+		
+		assertEquals(false, moveOkRight);
+		
+	}
+	
+	@Test
+	void gameShouldDetectCollisionBetweenPlayerTreasure() {
+		Player player = new Player(1, 1, new RunnableGame());
+		boolean isColliding = player.CollisionAfterMovement(1,3);
+		assertEquals(true, isColliding);
+
+	}
+	@Test
+	void gameShouldDetectCollisionBetweenPlayerLaser() {
+		Player player = new Player(1, 3, new RunnableGame());
+		boolean isColliding = player.CollisionAfterMovement(1,3);
+		assertEquals(true, isColliding);
+
 	}
 
 }

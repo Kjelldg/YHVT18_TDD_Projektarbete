@@ -17,8 +17,8 @@ public class RunnableGame {
 	public static int [][] gameBoardArray = new int [][] {
 					{1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 3, 0, 0, 0, 0, 0, 0, 0, 1},
+					{1, 4, 0, 0, 0, 0, 0, 0, 0, 1},
 					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
 					{1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -52,7 +52,7 @@ public class RunnableGame {
 				{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 				};	*/			
 		
-		while(true) 
+		/*while(true) 
 		{			
 			
 			// Loops the gameBoard array
@@ -108,7 +108,7 @@ public class RunnableGame {
 			} catch (InterruptedException e) {			
 				e.printStackTrace();
 			}
-		}
+		}*/
 
 	}
 	
