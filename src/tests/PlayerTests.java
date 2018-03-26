@@ -65,14 +65,14 @@ class PlayerTests {
 	@Test
 	void gameShouldDetectCollisionBetweenPlayerTreasure() {
 		Player player = new Player(1, 1, new RunnableGame());
-		boolean isColliding = player.CollisionAfterMovement(1,3);
+		boolean isColliding = player.CollisionAfterMovement(2,1);
 		assertEquals(true, isColliding);
 
 	}
 	@Test
 	void gameShouldDetectCollisionBetweenPlayerLaser() {
-		Player player = new Player(1, 3, new RunnableGame());
-		boolean isColliding = player.CollisionAfterMovement(1,3);
+		Player player = new Player(1, 1, new RunnableGame());
+		boolean isColliding = player.CollisionAfterMovement(3,1);
 		assertEquals(true, isColliding);
 
 	}
