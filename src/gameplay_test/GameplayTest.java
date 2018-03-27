@@ -43,10 +43,11 @@ class GameplayTest {
 		//Test one with a set time that is in range of active hours.
 		//Test two was done with local time outside of active hours.
 		
-		LocalTime time = LocalTime.parse("20:08");
+		LocalTime timeOne = LocalTime.parse("20:08");
+		LocalTime timeTwo = LocalTime.parse("12:45");
 		
-		boolean testOne = game.isActive(time);
-		boolean testTwo = game.isActive(now);
+		boolean testOne = game.isActive(timeOne);
+		boolean testTwo = game.isActive(timeTwo);
 		
 		assertEquals(true, testOne);
 		assertEquals(false, testTwo);

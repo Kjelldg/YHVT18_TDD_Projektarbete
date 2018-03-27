@@ -42,7 +42,7 @@ public class GameplayLogic {
 
 	public int checkGold(ArrayList<Integer> one, ArrayList<Integer> two, ArrayList<Integer> three) {
 		
-		//Count each array that hold treasures.
+		//Count each array list that hold treasures.
 		//Calculate the value of picked up treasures.
 		//Return total amount of gold.
 		
@@ -78,8 +78,7 @@ public class GameplayLogic {
 		
 		} else if(treasure == 2) {
 			treasureTwo.add(treasure);
-			//System.out.println(two.toString()); //Test to see if value was added to list.
-			//return 2;
+			
 		} else if(treasure == 3) {
 			treasureThree.add(treasure);
 			
