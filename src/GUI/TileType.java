@@ -14,7 +14,7 @@ public class TileType {
 	String assetPath = System.getProperty("user.dir") + "\\assets\\";
 	private BufferedImage floor;
 	private BufferedImage wall;
-	private BufferedImage player;
+	public BufferedImage player;
 	private BufferedImage treasure;
 	private BufferedImage laser;
 	private BufferedImage door;

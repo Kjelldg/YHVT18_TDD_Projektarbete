@@ -18,6 +18,7 @@ public class RunnableGame {
 	public static boolean startGame = false;
 	public static String userInput = "";
 	public static Gameboard gameBoard;
+	public static GameplayLogic gpLogic;
 
 	public static void main(String[] args) {
 
@@ -78,6 +79,9 @@ public class RunnableGame {
 						gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 						gameBoard.gameBoardArray[playerPosition_Y_Position - 1][playerPosition_X_Position] = 1;
 						player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
+						int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+						gpLogic.checkTreasure(treasure);
+						
 					}
 					break;
 				case "DOWN":
@@ -85,6 +89,9 @@ public class RunnableGame {
 					if(player.validateMovement(playerPosition_Y_Position +1, playerPosition_X_Position, movementType.MOVEMENT)) {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position + 1][playerPosition_X_Position] = 1;
+					player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
+					int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+					gpLogic.checkTreasure(treasure);
 					}
 					break;
 				case "LEFT":
@@ -92,6 +99,9 @@ public class RunnableGame {
 					if(player.validateMovement(playerPosition_Y_Position, playerPosition_X_Position -1, movementType.MOVEMENT)) {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position - 1] = 1;
+					player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
+					int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+					gpLogic.checkTreasure(treasure);
 					}
 					break;
 				case "RIGHT":
@@ -99,6 +109,10 @@ public class RunnableGame {
 					if(player.validateMovement(playerPosition_Y_Position, playerPosition_X_Position + 1, movementType.MOVEMENT)) {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position + 1] = 1;
+					player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
+					int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+					gpLogic.checkTreasure(treasure);
+					
 					}
 					break;
 				default:

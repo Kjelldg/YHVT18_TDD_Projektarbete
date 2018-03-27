@@ -2,6 +2,8 @@ package tests;
 
 import java.awt.image.BufferedImage;
 
+import org.junit.*;
+
 import GUI.TileType;
 
 public class TileTypeTest {

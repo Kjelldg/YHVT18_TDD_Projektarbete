@@ -1,10 +1,11 @@
-package gameplay_test;
+package tests;
 
 import static org.junit.Assert.assertEquals;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import org.junit.jupiter.api.*;
-import gameplay_logic.GameplayLogic;
+
+import gameplay.GameplayLogic;
 
 class GameplayTest {
 

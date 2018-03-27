@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-/GUI/
-/player/
-/tests/
 /gameplay/
-=======
-/gameplay_logic/
-/gameplay_test/
->>>>>>> GameplayDevelopement
+/player/

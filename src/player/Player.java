@@ -3,12 +3,16 @@ package player;
 import java.util.ArrayList;
 
 import gameplay.Gameboard;
+import gameplay.GameplayLogic;
 import gameplay.RunnableGame;
 
 public class Player {
 
 	public final int playerValue = 2;
 	public Gameboard gbTest;
+	public static GameplayLogic gpLogic;
+	public int gold;
+	public int treasure;
 
 	public enum movementType {
 		SPAWN, MOVEMENT;
@@ -107,12 +111,29 @@ public class Player {
 		//int tileValue = RunnableGame.gameBoard.getGameBoardPosistion(posY, posX); <-- for tests
 		int tileValue = gbTest.getGameBoardPosistion(posY, posX);
 		boolean collision;
+		boolean openDoor;
 		switch (tileValue) {
 		case 3:
 			System.out.println("FOUND TREASURE");
+			treasure = 1;
 			return true;
 		// break;
 		case 4:
+			System.out.println("FOUND DOOR");
+			
+			//Calculate players gold.
+			gold = gpLogic.checkGold(gpLogic.treasureOne, gpLogic.treasureTwo, gpLogic.treasureThree);
+			
+			//Check if the gold is enough for entry.
+			openDoor = gpLogic.openDoor(gold);
+			if(openDoor = true) {
+				System.out.println("YOU WIN!");
+				return true;
+			}
+			//PROBLEM: Both denied entry and default value returns false.
+			//How to solve?
+			return false;		
+		case 5:
 			System.out.println("LASERDEATH!");
 			return true;
 		// break;

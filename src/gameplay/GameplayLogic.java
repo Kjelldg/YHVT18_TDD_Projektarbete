@@ -1,4 +1,4 @@
-package gameplay_logic;
+package gameplay;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
