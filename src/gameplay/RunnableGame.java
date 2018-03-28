@@ -19,6 +19,8 @@ public class RunnableGame {
 	public static String userInput = "";
 	public static Gameboard gameBoard;
 	public static GameplayLogic gpLogic;
+	public static int gold;
+	public static boolean openDoor;
 
 	public static void main(String[] args) {
 
@@ -79,9 +81,24 @@ public class RunnableGame {
 						gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 						gameBoard.gameBoardArray[playerPosition_Y_Position - 1][playerPosition_X_Position] = 1;
 						player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
-						int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
-						gpLogic.checkTreasure(treasure);
 						
+						int value = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+						if(value == 3) {
+							gpLogic.checkTreasure(value);
+							gold = 3;
+							} else if(value == 4) {
+								//Calculate players gold.
+								gold = gpLogic.checkGold(gpLogic.treasureOne, gpLogic.treasureTwo, gpLogic.treasureThree);
+								
+								//Check if the gold is enough for entry.
+								openDoor = gpLogic.openDoor(gold);
+								if(openDoor = true) {
+									System.out.println("YOU WIN!");
+									break;
+								} else {
+									System.out.println("Not enough gold!");
+								}
+							}	
 					}
 					break;
 				case "DOWN":
@@ -90,8 +107,24 @@ public class RunnableGame {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position + 1][playerPosition_X_Position] = 1;
 					player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
-					int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
-					gpLogic.checkTreasure(treasure);
+
+					int value = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+					if(value == 3) {
+						gpLogic.checkTreasure(value);
+						gold = 3;
+						} else if(value == 4) {
+							//Calculate players gold.
+							gold = gpLogic.checkGold(gpLogic.treasureOne, gpLogic.treasureTwo, gpLogic.treasureThree);
+							
+							//Check if the gold is enough for entry.
+							openDoor = gpLogic.openDoor(gold);
+							if(openDoor = true) {
+								System.out.println("YOU WIN!");
+								break;
+							} else {
+								System.out.println("Not enough gold!");
+							}
+						}	
 					}
 					break;
 				case "LEFT":
@@ -100,8 +133,24 @@ public class RunnableGame {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position - 1] = 1;
 					player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
-					int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
-					gpLogic.checkTreasure(treasure);
+
+					int value = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+					if(value == 3) {
+						gpLogic.checkTreasure(value);
+						gold = 3;
+						} else if(value == 4) {
+							//Calculate players gold.
+							gold = gpLogic.checkGold(gpLogic.treasureOne, gpLogic.treasureTwo, gpLogic.treasureThree);
+							
+							//Check if the gold is enough for entry.
+							openDoor = gpLogic.openDoor(gold);
+							if(openDoor = true) {
+								System.out.println("YOU WIN!");
+								break;
+							} else {
+								System.out.println("Not enough gold!");
+							}
+						}	
 					}
 					break;
 				case "RIGHT":
@@ -110,9 +159,24 @@ public class RunnableGame {
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position] = 0;
 					gameBoard.gameBoardArray[playerPosition_Y_Position][playerPosition_X_Position + 1] = 1;
 					player.CollisionAfterMovement(playerPosition_Y_Position-1, playerPosition_X_Position);
-					int treasure = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
-					gpLogic.checkTreasure(treasure);
 					
+					int value = gameBoard.getGameBoardPosistion(playerPosition_Y_Position -1, playerPosition_X_Position);
+					if(value == 3) {
+						gpLogic.checkTreasure(value);
+						gold = 3;
+						} else if(value == 4) {
+							//Calculate players gold.
+							gold = gpLogic.checkGold(gpLogic.treasureOne, gpLogic.treasureTwo, gpLogic.treasureThree);
+							
+							//Check if the gold is enough for entry.
+							openDoor = gpLogic.openDoor(gold);
+							if(openDoor = true) {
+								System.out.println("YOU WIN!");
+								break;
+							} else {
+								System.out.println("Not enough gold!");
+							}
+						}	
 					}
 					break;
 				default:
@@ -123,7 +187,7 @@ public class RunnableGame {
 				userInput = "";
 
 				try {
-					Thread.sleep(100);
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
